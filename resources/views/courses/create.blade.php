@@ -37,12 +37,13 @@
             </div>
         </div>
         <!-- /.card-body -->
+
+        <div class="card-footer">
+            <a href="{{ route('courses.index') }}" class="btn btn-secondary">@lang('general.cancel')</a>
+            <input type="submit" value="@lang('course/actions.create')" class="btn btn-success float-right">
+        </div>
     </div>
     <!-- /.card -->
-    <div class="col-12">
-        <a href="{{ route('courses.index') }}" class="btn btn-secondary">@lang('general.cancel')</a>
-        <input type="submit" value="@lang('course/actions.create')" class="btn btn-success float-right">
-    </div>
     {{ Form::close() }}
 </div>
 </div>

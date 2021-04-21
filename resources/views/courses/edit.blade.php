@@ -35,10 +35,10 @@
                     </span>
                 @endif
             </div>
-            <div class="col-12">
-                <a href="{{ route('courses.index') }}" class="btn btn-secondary">@lang('general.cancel')</a>
-                <input type="submit" value="@lang('course/actions.update')" class="btn btn-primary float-right">
-            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{ route('courses.index') }}" class="btn btn-outline-secondary">@lang('general.cancel')</a>
+            <input type="submit" value="@lang('course/actions.update')" class="btn btn-primary ">
         </div>
         <!-- /.card-body -->
     </div>

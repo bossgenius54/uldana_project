@@ -33,7 +33,7 @@
                         @endif
                     </div>
                     <!-- /.card-body -->
-                    <div class="col-12">
+                    <div class="card-footer">
                         <a href="{{ route('courses.index') }}" class="btn btn-secondary">@lang('general.cancel')</a>
                         <input type="submit" value="@lang('general.save')" class="btn btn-success float-right">
                     </div>

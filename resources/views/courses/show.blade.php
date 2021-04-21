@@ -82,7 +82,7 @@
             }).then((result) => {
                 if (result.value) {
                     Swal.fire({
-                        title: `Suscrito`,
+                        title: `Success!`,
                     })
                 }
                 if(result.dismiss) {

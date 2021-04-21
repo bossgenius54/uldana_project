@@ -13,7 +13,7 @@
         <div class="card-body">
             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
-                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                    <table id="example2" class="table table-striped table-hover dataTable" role="grid" aria-describedby="example2_info">
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">@lang('course/fields.id')</th>
@@ -46,13 +46,13 @@
                             @endforeach
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th rowspan="1" colspan="1">@lang('course/fields.id')</th>
-                                <th rowspan="1" colspan="1">@lang('course/fields.name')</th>
-                                <th rowspan="1" colspan="1">@lang('course/fields.description')</th>
-                                <th rowspan="1" colspan="1">@lang('course/fields.teacher')</th>
-                                <th rowspan="1" colspan="1"></th>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <th rowspan="1" colspan="1">@lang('course/fields.id')</th>--}}
+{{--                                <th rowspan="1" colspan="1">@lang('course/fields.name')</th>--}}
+{{--                                <th rowspan="1" colspan="1">@lang('course/fields.description')</th>--}}
+{{--                                <th rowspan="1" colspan="1">@lang('course/fields.teacher')</th>--}}
+{{--                                <th rowspan="1" colspan="1"></th>--}}
+{{--                            </tr>--}}
                         </tfoot>
                     </table>
                 </div>

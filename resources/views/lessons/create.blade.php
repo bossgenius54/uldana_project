@@ -24,7 +24,7 @@
                     </span>
                     @endif
                 </div>
-                <textarea id="laraberg" {{old('content')}} name="content" hidden></textarea>
+                <textarea id="laraberg" name="content" hidden>{{old('content')}} </textarea>
                 @if ($errors->has('content'))
                     <span class="help-block">
                         <strong class="text-danger">{{ $errors->first('content') }}</strong>
@@ -32,7 +32,7 @@
                 @endif
             </div>
             <!-- /.card-body -->
-            <div class="col-12">
+            <div class="card-footer">
                 <a href="{{ route('courses.index') }}" class="btn btn-secondary">@lang('general.cancel')</a>
                 <input type="submit" value="@lang('lesson/actions.create')" class="btn btn-success float-right">
             </div>
@@ -51,6 +51,6 @@
     <script src="https://unpkg.com/moment@2.24.0/min/moment.min.js"></script>
     <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
     <script>
-        Laraberg.init('laraberg', { laravelFilemanager: true })
+        Laraberg.init('laraberg')
     </script>
 @endsection
