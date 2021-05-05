@@ -3,7 +3,7 @@
    <!-- DIRECT CHAT PRIMARY -->
     <div class="card card-primary cardutline direct-chat direct-chat-primary">
         <div class="card-header">
-            <h3 class="card-title">Chat</h3>
+            <h3 class="card-title">Чат</h3>
             <div class="card-tools">
                 <span data-toggle="tooltip" title="users connected" class="badge bg-primary">{{ users.length }} <i class="fa fas fa-users"></i></span>
                 <span data-toggle="tooltip" v-on:click="changeVolumen" title="volume" class="badge bg-primary">
@@ -37,7 +37,7 @@
         <!-- /.card-body -->
         <div class="card-footer">
 
-            <textarea type="text" v-model="newMessage" ref="message" @keyup.enter="sendMessage" name="message" placeholder="¿Que estas pensando?" class="form-control"></textarea>
+            <textarea type="text" v-model="newMessage" ref="message" @keyup.enter="sendMessage" name="message" placeholder="Не ойлайсыз? Ойыңызды қалдырыңыз" class="form-control"></textarea>
         </div>
         <!-- /.card-footer-->
     </div>

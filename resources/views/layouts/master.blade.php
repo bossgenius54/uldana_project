@@ -28,23 +28,23 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('home') }}" class="nav-link {{ is_active('home') }}">
-                    <i class="nav-icon fas fa-home"></i> {{ __('Home') }}
+                    <i class="nav-icon fas fa-home"></i> Басты бет
                 </a>
             </li>
 
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">
-                    <i class="nav-icon fas fa-play"></i>
-                    {{ __('Stream') }}
-                    <span class="right badge badge-danger">New</span>
-                </a>
-            </li>
+{{--            <li class="nav-item d-none d-sm-inline-block">--}}
+{{--                <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">--}}
+{{--                    <i class="nav-icon fas fa-play"></i>--}}
+{{--                    {{ __('Stream') }}--}}
+{{--                    <span class="right badge badge-danger">New</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
         </ul>
 
         <!-- SEARCH FORM -->
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control form-control-navbar" type="search" placeholder="Іздеу" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
@@ -71,7 +71,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ Auth::user()->avatar }}" class="img-circle elevation-2" alt="User Image">
+{{--                    <img src="{{ Auth::user()->avatar }}" class="img-circle elevation-2" alt="User Image">--}}
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -86,19 +86,19 @@
                         <a href="{{ route('home') }}" class="nav-link {{ is_active('home') }}">
                             <i class="nav-icon fas fa-home"></i>
                             <p>
-                                {{ __('Home') }}
+                                Басты бет
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">
-                            <i class="nav-icon fas fa-play"></i>
-                            <p>
-                                {{ __('Stream') }}
-                                <span class="right badge badge-danger">New</span>
-                            </p>
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">--}}
+{{--                            <i class="nav-icon fas fa-play"></i>--}}
+{{--                            <p>--}}
+{{--                                {{ __('Stream') }}--}}
+{{--                                <span class="right badge badge-danger">New</span>--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     @can('view_admin')
                     <li class="nav-header">@lang('menus.administration')</li>
                     <li class="nav-item">
@@ -126,7 +126,7 @@
                                                      document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-power-off red"></i>
                             <p>
-                                {{ __('Logout') }}
+                                Шығу
                             </p>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -186,7 +186,7 @@
             {{  Config::get('settings.name') }}
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; {{ \Carbon\Carbon::now()->year }} <a href="{{ env('APP_AUTHOR_URL') }}">{{ env('APP_AUTHOR_NAME') }}</a>.</strong> All rights reserved.
+        <strong>Дипломдық жұмыс &copy; {{ \Carbon\Carbon::now()->year }} <a href="{{ env('APP_AUTHOR_URL') }}">{{ env('APP_AUTHOR_NAME') }}</a>.</strong>
     </footer>
 </div>
 <!-- ./wrapper -->

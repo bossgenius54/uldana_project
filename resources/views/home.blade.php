@@ -24,14 +24,14 @@
                         <h5 class="widget-user-desc">{{ $course->teacher->name }}</h5>
                     </div>
                     <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="{{ $course->teacher->avatar }}" alt="User Avatar">
+{{--                        <img class="img-circle elevation-2" src="{{ $course->teacher->avatar }}" alt="User Avatar">--}}
                     </div>
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
                                     <h5 class="description-header">{{ $course->students()->count() }}</h5>
-                                    <span class="description-text">STUDENTS</span>
+                                    <span class="description-text">Оқушылар</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
@@ -46,7 +46,7 @@
                             <div class="col-sm-4">
                                 <div class="description-block">
                                     <h5 class="description-header">{{ $course->lessons->count() }}</h5>
-                                    <span class="description-text">LESSONS</span>
+                                    <span class="description-text">Сабақ</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>

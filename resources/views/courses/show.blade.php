@@ -47,7 +47,7 @@
         const subscribed = Boolean({!! $subscribed !!})
         if(!subscribed){
             Swal.fire({
-                title: 'Do you want subscribe this course',
+                title: 'Сіз осы күрсқа тіркелгіңіз келеді ма?',
                 inputAttributes: {
                     autocapitalize: 'true'
                 },
@@ -64,15 +64,15 @@
                         cache: false,
                         success: function(response) {
                             swal(
-                                "Sccess!",
-                                "Your note has been saved!",
+                                "Успешно!",
+                                "Сіздің жазбаңыз сақталды!",
                                 "success"
                             )
                         },
                         failure: function (response) {
                             swal(
                                 "Internal Error",
-                                "Oops, your note was not saved.", // had a missing comma
+                                "Сіздің жазбаңыз сақталмады.", //
                                 "error"
                             )
                         }
@@ -82,7 +82,7 @@
             }).then((result) => {
                 if (result.value) {
                     Swal.fire({
-                        title: `Success!`,
+                        title: `Жетістік!`,
                     })
                 }
                 if(result.dismiss) {
