@@ -1890,10 +1890,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     parseDate: function parseDate(date) {
       if (date) {
-        return moment__WEBPACK_IMPORTED_MODULE_1___default()(date, "YYYY-MM-DD hh:mm:ss").locale('es').fromNow();
+        return moment__WEBPACK_IMPORTED_MODULE_1___default()(date, "YYYY-MM-DD hh:mm:ss").locale('ru').fromNow();
       } else {
         var now = moment__WEBPACK_IMPORTED_MODULE_1___default()().subtract(1, 'seconds');
-        return moment__WEBPACK_IMPORTED_MODULE_1___default()(now).locale('es').fromNow();
+        return moment__WEBPACK_IMPORTED_MODULE_1___default()(now).locale('ru').fromNow();
       }
     },
     makeUrlApi: function makeUrlApi() {
@@ -79424,7 +79424,7 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "anyKey",
+  key: "7a30acc4870922c9e138",
   //cluster: process.env.MIX_PUSHER_APP_CLUSTER,
   //encrypted: true,
   wsHost: window.location.hostname,

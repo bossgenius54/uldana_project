@@ -164,10 +164,10 @@
             },
             parseDate(date){
                 if(date){
-                    return moment(date, "YYYY-MM-DD hh:mm:ss").locale('es').fromNow();
+                    return moment(date, "YYYY-MM-DD hh:mm:ss").locale('ru').fromNow();
                 } else {
                     var now = moment().subtract(1, 'seconds');
-                    return moment(now).locale('es').fromNow();
+                    return moment(now).locale('ru').fromNow();
                 }
             },
             makeUrlApi(){
