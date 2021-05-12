@@ -8,7 +8,7 @@
                     <div class="card-header">@lang('auth.register')</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.store') }}" id="form-auth">
+                        <form method="POST" action="{{ route('users.update') }}" id="form-auth">
                             @csrf
 
                             <div class="form-group row">

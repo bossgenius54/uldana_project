@@ -90,25 +90,6 @@
         }
 
         /**
-         * Display the specified resource.
-         *
-         * @param int $id
-         * @param ShowLessonUsecaseInterface $lessonUsecase
-         * @return \Illuminate\Contracts\View\Factory|RedirectResponse|\Illuminate\View\View
-         */
-        public function show($id, ShowLessonUsecaseInterface $lessonUsecase)
-        {
-            $response = $lessonUsecase->handle($id, Auth::user()->id);
-            $lesson = $response['data']['lesson'];
-            $subscribed = $response['data']['subscribed'];
-            if(!$subscribed){
-                return redirect()->route("courses.show", $lesson->course->id);
-            }
-
-            return view('lessons.show', compact('lesson', 'subscribed'));
-        }
-
-        /**
          * Show the form for editing the specified resource.
          *
          * @param int                     $id
@@ -128,18 +109,26 @@
          *
          * @param \Illuminate\Http\Request $request
          * @param int $id
-         * @param UpdateLessonUsescaseInterface $updateLessonUsescase
-         * @return \Illuminate\Http\Response
+         * @param UserRepositoryInterface $updateLessonUsescase
+         * @return RedirectResponse
          */
-        public function update(Request $request, $id, UpdateLessonUsescaseInterface $updateLessonUsescase)
+        public function update(Request $request, $id, UserRepositoryInterface $userRepository)
         {
-            try {
-                $updateLessonUsescase->handle($id, $request->all());
-                flash('Урок успешно сохранен');
-            } catch (\Exception $e){
-                flash('Урок не удалось сохранить', 'error');
+            $user = $userRepository->findById($id);
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->email = $request->email;
+
+            $user->assignRole($request->role);
+
+            if ($user->save()){
+                flash('Пользователь успешно добавлен');
+            } else {
+                flash('Не удалось изменить!');
+                return redirect()->back();
             }
-            return  redirect()->back();
+
+            return  redirect()->route('users.index');
         }
 
         /**
