@@ -8,7 +8,7 @@
                     <div class="card-header">@lang('auth.register')</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.update') }}" id="form-auth">
+                        {{ Form::open(['url' => route('users.update', $user->id),'method'=>'PUT']) }}
                             @csrf
 
                             <div class="form-group row">
@@ -102,7 +102,8 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        {{ Form::close() }}
+
                     </div>
                 </div>
             </div>

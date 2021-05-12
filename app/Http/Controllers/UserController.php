@@ -119,6 +119,9 @@
             $user->username = $request->username;
             $user->email = $request->email;
 
+            foreach ($user->getRoleNames() as $role){
+                $user->removeRole($role);
+            }
             $user->assignRole($request->role);
 
             if ($user->save()){
@@ -134,18 +137,21 @@
         /**
          * Remove the specified resource from storage.
          *
-         * @param int $id
-         * @param DeleteLessonUsescaseInterface $deleteLessonUsescase
-         * @return \Illuminate\Http\Response
+         * @param int                     $id
+         * @param UserRepositoryInterface $userRepository
+         * @return RedirectResponse
          */
-        public function destroy($id, DeleteLessonUsescaseInterface $deleteLessonUsescase)
+        public function destroy(int $id, UserRepositoryInterface $userRepository)
         {
-            try {
-                $deleteLessonUsescase->handle($id);
-                flash('Урок успешно удален');
-            } catch (\Exception $e){
-                flash('Урок не может быть удален', 'error');
+            $user = $userRepository->findById($id);
+            $name = $user->name;
+
+            if ($user->delete()){
+                flash("Пользователь под именем $name успешно удален");
+            } else {
+                flash("Пользователь под именем $name не удалось удалить");
             }
+
             return redirect()->back();
         }
 
