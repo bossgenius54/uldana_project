@@ -2,18 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-2">
-            <video width="100%" height="auto" controls="controls" >
-                <source src="{{  Config::get('settings.media_server_url') }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                Тег video не поддерживается вашим браузером.
-                <a href="video/duel.mp4">Скачайте видео</a>.
-            </video>
-            <br>
-            <br>
-            <br>
-        </div>
-    </div>
+
     <div class="row">
         @foreach($courses as $course)
             <div class="col-md-4">

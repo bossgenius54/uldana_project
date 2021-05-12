@@ -11,7 +11,9 @@
     use App\Repositories\Contracts\UserRepositoryInterface;
     use App\Repositories\EloquentUserRepository;
     use App\Traits\Authorizable;
+    use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Hash;
 
 
     class UserController extends Controller
@@ -54,32 +56,36 @@
          *
          * @param int $course
          */
-        public function create(User $user)
+        public function create()
         {
-            return view('lessons.create', compact('course'));
+            $user = '';
+            $roles = Role::all();
+            return view('users.create', compact('roles'));
         }
 
         /**
          * Store a newly created resource in storage.
          *
-         * @param CreateRequest $request
-         * @param CreateLessonUsecaseInterface $createLessonUsecase
-         * @return \Illuminate\Http\RedirectResponse
+         * @param Request                 $request
+         * @return RedirectResponse
          */
-        public function store(CreateRequest $request, CreateLessonUsecaseInterface $createLessonUsecase)
+        public function store(Request $request)
         {
-            try {
-                $result = $createLessonUsecase->handle($request->all(), auth()->user()->id);
-                if($result['data']){
-                    flash('Урок успешно создан!');
-                } else {
-                    flash(implode('-', $result['errors']), 'error');
-                    throw new \Exception('error create course');
-                }
-                return redirect()->route('courses.edit', $request->get('course_id'));
-            } catch (\Exception $e){
+//            $this->validate($request, ['name' => 'required|unique:roles']);
+            $user = User::create([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-                return redirect()->back();
+            $user->assignRole($request->role);
+
+            if ($user->save()){
+                return redirect()->route('users.index');
+            } else {
+
+                return redirect()->route('users.index');
             }
         }
 
@@ -88,7 +94,7 @@
          *
          * @param int $id
          * @param ShowLessonUsecaseInterface $lessonUsecase
-         * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+         * @return \Illuminate\Contracts\View\Factory|RedirectResponse|\Illuminate\View\View
          */
         public function show($id, ShowLessonUsecaseInterface $lessonUsecase)
         {
@@ -105,15 +111,15 @@
         /**
          * Show the form for editing the specified resource.
          *
-         * @param int $id
-         * @param LessonRepositoryInterface $lessonRepository
+         * @param int                     $id
+         * @param UserRepositoryInterface $userRepository
          * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
          */
-        public function edit($id, LessonRepositoryInterface $lessonRepository)
+        public function edit(int $id, UserRepositoryInterface $userRepository)
         {
-            $lesson = $lessonRepository->findById($id);
+            $user = $userRepository->findById($id);
 
-            return view('lessons.edit', compact('lesson'));
+            return view('users.edit', compact('user'));
         }
 
         /**
