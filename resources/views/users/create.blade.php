@@ -94,23 +94,6 @@
                                 </div>
                             </div>
 
-                            @if(config('captcha.enable', false))
-
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        @error('g-recaptcha-response')
-                                        <span class="alert alert-error small alert-dismissible fade show">
-                                        <strong>{{ $message }}</strong>
-                                        <button type="button" class="close small" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </span>
-                                        @enderror
-                                        {!! NoCaptcha::display() !!}
-                                    </div>
-                                </div>
-                            @endif
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

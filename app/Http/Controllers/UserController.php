@@ -117,9 +117,10 @@
          */
         public function edit(int $id, UserRepositoryInterface $userRepository)
         {
-            $user = $userRepository->findById($id);
+            $ar['user'] = $userRepository->findById($id);
+            $ar['roles'] = Role::all();
 
-            return view('users.edit', compact('user'));
+            return view('users.edit', $ar);
         }
 
         /**
